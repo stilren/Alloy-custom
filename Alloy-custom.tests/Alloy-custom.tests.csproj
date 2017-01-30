@@ -189,6 +189,7 @@
   <ItemGroup>
     <Compile Include="SendEmailWithAttachmentsAfterSubmissionActorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ValidatorHelperTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Alloy-custom\Alloy-custom.csproj">

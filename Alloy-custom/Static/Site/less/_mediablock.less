@@ -1,0 +1,127 @@
+﻿.icon {
+    display: inline-block;
+
+    &.automatic {
+        margin-left: 3px;
+    }
+
+    &:before {
+        display: inline-block;
+        font-style: normal !important;
+        font-weight: normal !important;
+        font-variant: normal !important;
+        text-transform: none !important;
+        speak: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        position: relative;
+        top: 3/19em; // Adjust with 3px for standard font 19px for correct placement of icon
+    }
+}
+
+.top-media {
+        .constrain-proportions(56.23%);
+        position: relative;
+        height: 0;
+        overflow: hidden;
+        max-width: 100%;
+        margin-bottom: 15px;
+        background-color: #000;
+
+        iframe {
+            .top-media-position;
+            height: 100%;
+            z-index: 100;
+            background: transparent;
+        }
+
+        &.hasMovie {
+            cursor: pointer;
+            .transition(all 0.6s);
+            &:hover{
+                .filter(brightness(75%));
+            }
+        }
+
+        img {
+            .top-media-position;
+            display: block;
+            margin: auto;
+            max-width: 100%;
+            border: none;
+            height: auto;
+        }
+
+
+        .play-overlay{
+            background-image :url("https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-play-128.png");
+            opacity: 0.80;
+            position: absolute;
+            z-index:2;
+            left: 50%;
+            top: 50%;
+            height: 140px;
+            width: 140px;
+            margin-left: -(140/2)*1px;
+            margin-top: -(140/2)*1px;
+            &:before {
+                font-size: 72 * 1px !important;
+                line-height: 1;
+            }
+
+            &--black{
+                &:before{
+                    color: black;
+                }
+            }
+
+            &--white{
+                 &:before{
+                    color: white;
+                }
+            }
+            
+            &--grey{
+                 &:before{
+                    color:grey;
+                }
+            }
+        }
+    }
+
+/*
+    Media
+*/
+.constrain-proportions(@proportions) {
+    padding-bottom: @proportions;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+.top-media-position{
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    position: absolute;
+}
+
+.transition(@transition) {
+	-webkit-transition: @transition;  
+	-moz-transition:    @transition;
+	-ms-transition:     @transition; 
+	-o-transition:      @transition;  
+	transition:      @transition;  
+}
+
+.filter(@filter) {
+    filter: @filter;
+    -moz-filter: @filter;
+    -webkit-filter: @filter;
+    -ms-filter: @filter;
+    -o-filter: @filter;
+}
+

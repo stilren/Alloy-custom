@@ -1,0 +1,38 @@
+@using Castle.Core.Internal
+@using EPiServer.AddOns.Helpers
+@model MediaBlock
+
+@{
+    var addMovie = string.Empty;
+    var youtubeUrl = Model.YouTubeLink ?? string.Empty;
+    var thumbNailUrl = string.Empty;
+    var noPicture = false;
+    var buttonColor = Color.White;
+
+    if (Model != null)
+    {
+        thumbNailUrl = Model.TopImage.GetPublicUrl().IsEmpty() ? string.Empty : Model.TopImage.GetPublicUrl();
+        noPicture = thumbNailUrl.IsEmpty();
+
+        buttonColor = Model.ButtonColor;
+
+        if (!youtubeUrl.IsNullOrEmpty())
+        {
+            addMovie = "js-youtube-div hasMovie";
+        }
+    }
+}
+
+
+@if (Model != null)
+{
+    <div class="top-media @addMovie" data-get-thumbnail=@noPicture data-id="@youtubeUrl" style="background-image: url('@thumbNailUrl');">
+        @if (addMovie != string.Empty)
+        {
+            <div class="js-youtube-container" data-id=@youtubeUrl>
+                <div class="play-overlay play icon-overlay--@buttonColor"></div>
+            </div>
+        }
+    </div>
+}
+

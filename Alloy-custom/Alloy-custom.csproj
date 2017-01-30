@@ -356,6 +356,8 @@
     <Compile Include="Business\Channels\WebChannel.cs" />
     <Compile Include="Business\ContentExtensions.cs" />
     <Compile Include="Business\ContentLocator.cs" />
+    <Compile Include="Business\CustomValidators\MediaBlockValidator.cs" />
+    <Compile Include="Business\CustomValidators\Validatorhelper.cs" />
     <Compile Include="Business\EditorDescriptors\ContactPageSelectionFactory.cs" />
     <Compile Include="Business\EditorDescriptors\ContactPageSelector.cs" />
     <Compile Include="Business\EditorDescriptors\StringListEditorDescriptor.cs" />
@@ -396,6 +398,7 @@
     <Compile Include="Helpers\CategorizableExtensions.cs" />
     <Compile Include="Helpers\HtmlHelpers.cs" />
     <Compile Include="Helpers\UrlHelpers.cs" />
+    <Compile Include="Models\Blocks\MediaBlock.cs" />
     <Compile Include="Models\Blocks\ButtonBlock.cs" />
     <Compile Include="Models\Blocks\ContactBlock.cs" />
     <Compile Include="Models\Blocks\EditorialBlock.cs" />
@@ -498,6 +501,8 @@
     <Content Include="Static\html\error.htm" />
     <Content Include="Static\img\glyphicons-halflings-white.png" />
     <Content Include="Static\img\glyphicons-halflings.png" />
+    <Content Include="Static\img\icon.png" />
+    <Content Include="Static\img\playicon.svg" />
     <Content Include="Static\js\bootstrap.js" />
     <Content Include="Static\js\jquery-ui.js" />
     <Content Include="Static\js\jquery.js" />
@@ -505,12 +510,23 @@
     <Content Include="Static\jwplayer\player.swf" />
     <Content Include="Static\jwplayer\preview.jpg" />
     <Content Include="Static\jwplayer\video.mp4" />
+    <Content Include="Static\Site\js\mediablock.js" />
+    <Content Include="Static\Site\less\site.css">
+      <DependentUpon>site.less</DependentUpon>
+    </Content>
+    <Content Include="Static\Site\less\site.min.css">
+      <DependentUpon>site.css</DependentUpon>
+    </Content>
     <Content Include="username-and-password.txt" />
     <Content Include="Views\Web.config" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
     <Content Include="App_Data\GeoLiteCity.dat" />
     <Content Include="App_Data\DefaultSiteContent.episerverdata" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
     <None Include="EPiServerLog.config" />
     <Content Include="packages.config" />
     <Content Include="modules\_protected\Shell\web.config" />
@@ -565,6 +581,9 @@
     <Content Include="modules\_protected\EPiServer.Forms\Views\ElementBlocks\Web.config" />
     <Content Include="modules\_protected\EPiServer.Forms\Forms.config" />
     <Content Include="modules\_protected\EPiServer.Forms\EPiServer.Forms.zip" />
+    <Content Include="Views\Shared\Blocks\MediaBlock.cshtml" />
+    <Content Include="Static\Site\less\_mediablock.less" />
+    <Content Include="Static\Site\less\site.less" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
