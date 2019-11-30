@@ -1,0 +1,59 @@
+entity Cohort {
+        cohortName String
+}
+
+entity Scenario {
+        scenarioName String
+}
+
+entity Team {
+        teamName String
+}
+
+entity RevenueCharacteristics {
+        RevenuePerTick String 
+        CronSchedule String 
+        Delay Duration
+}
+
+entity ChurnCharacteristics {
+        ChrunPerTick String 
+        CronSchedule String 
+        Delay Duration
+}
+
+entity UserAcquisitionCharacteristics {
+        UsersAcquiredPerTick String 
+        CronSchedule String
+        Repeat Integer
+        Delay Duration
+}
+
+relationship OneToOne {
+	Cohort{userAcquisition} to UserAcquisitionCharacteristics{cohort}
+	Cohort{churn} to ChurnCharacteristics{cohort}
+	Cohort{revenue} to RevenueCharacteristics{cohort}
+}
+
+relationship ManyToMany {
+	Cohort to Scenario
+    Team{user(email)} to User{team(teamName)}
+}
+
+relationship OneToMany {
+	Team to Scenario
+    Team to Cohort
+}
+
+
+// Set pagination options
+paginate Cohort, Scenario, User, Team with infinite-scroll
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+//service all with serviceImpl except Employee, Job
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
